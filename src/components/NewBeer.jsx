@@ -41,8 +41,8 @@ const NewBeer = () => {
         return (
             <>
                 <Header />
-                <form>
-                    <label htmlFor="name" onSubmit={handleSubmit}>NAME</label>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="name">NAME</label>
                     <input type="text" name="name" onChange={(e) => setName(e.target.value)} />
                     <label htmlFor="tagline">TAGLINE</label>
                     <input type="text" name="tagline" onChange={(e) => setTagline(e.target.value)} />
