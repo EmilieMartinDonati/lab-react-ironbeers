@@ -1,7 +1,7 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import axios from "axios";
-import {NavLink, Outlet} from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 
 const ListBeers = () => {
@@ -16,25 +16,31 @@ const ListBeers = () => {
 
     return (
         <>
+        <div className="row">
             <Header />
-            <Outlet context={beers}/>
-            <>
-                {beers.map((beer) => {
-                    return (
-                        <div className="card" style={{width: "50rem;"}}>
-                            <img src={beer.image_url} class="card-img-top" alt={beer.name} />
+            </div>
+            <div className="row">
+                <div className="col-6">
+                    <Outlet context={beers} />
+                </div>
+                <div className="col-6">
+                    {beers.map((beer) => {
+                        return (
+                            <div className="card" style={{ width: "50rem;" }}>
+                                <img src={beer.image_url} class="card-img-top" alt={beer.name} />
                                 <div class="card-body">
                                     <h5 class="card-title">{beer.name}</h5>
                                     <p class="card-text">{beer.tagline}</p>
                                     <p class="card-text"><bold>Created by :</bold> {beer.contributed_by}</p>
                                     <NavLink to={`/beers/${beer._id}`}>See details</NavLink>
                                 </div>
-                        </div>
-                    )
-                })}
+                            </div>
+                        )
+                    })}
 
 
-        </>
+                </div>
+            </div>
         </>
     )
 }

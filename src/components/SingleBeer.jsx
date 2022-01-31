@@ -14,18 +14,21 @@ const SingleBeer = () => {
     console.log(beers);
 
     console.log(params.beerId);
+
+    useEffect(() => {
+        const foundBeer = beers.find((elem) => elem._id === params.beerId);
+
+        console.log(foundBeer);
    
-     const foundBeer = beers.find((elem) => elem._id === params.beerId);
+       setBeer(foundBeer);
+    })
 
-     console.log(foundBeer);
-
-    setBeer(foundBeer);
+   
     
 
     return (
-        <>
-        <Header />
-        <div className="card" style={{width: "100rem"}}>
+        
+        <div className="card">
                             <img src={beer.image_url} class="card-img-top" alt={beer.name} />
                             
                                 <div class="card-body">
@@ -35,7 +38,6 @@ const SingleBeer = () => {
                                 </div>
                         </div>
 
-        </>
     )
 }
 
